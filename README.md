@@ -11,19 +11,89 @@ Include your ER diagram here
 
 ### STEP 1:
 
+Make new folder and fork the repository to it.
+
 ### STEP 2:
+
+Now using cd command navigate to django-orm-app
 
 ### STEP 3:
 
-Write your own steps
+now navigate to dataproject folder
+
+### STEP 4:
+
+Now create a app called myapp
+
+### STEP 5:
+
+Now apply all migrations
+
+### STEP 6:
+
+Now write the necessary code for models.py and admin.py
+
+### STEP 7:
+
+Now create a superuser with user name as admin and mail id as admin@example.com and a passsword.
+
+### STEP 8:
+
+Now run the server and navigate to admin page
+
+### STEP 9:
+
+Now  create 10 employees 
+
+
 
 ## PROGRAM
+### models.py
 
-Include your code here
+Write the following code in your models.py file inside of myapp
+```from django.db import models
+from django.contrib import admin
+
+
+# Create your models here.
+class Student (models.Model):
+    referencenumber=models.CharField(max_length=20,help_text="reference number")
+    name=models.CharField(max_length=100)
+    age=models.IntegerField()
+    email=models.EmailField()
+
+
+class StudentAdmin(admin.ModelAdmin):
+    list_display=('referencenumber','name','age','email')
+
+
+class Employee (models.Model):
+   emp_id=models.CharField(primary_key=True,max_length=4,help_text='Employee ID')
+   ename=models.CharField(max_length=50)
+   post=models.CharField(max_length=20)
+   salary=models.IntegerField()
+   
+
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display=('emp_id','ename','post','salary')```
+
+Write the following code in admin.py
+
+```from django.contrib import admin
+from .models import Student,StudentAdmin,Employee,EmployeeAdmin
+
+
+# Register your models here.
+admin.site.register(Student,StudentAdmin)
+admin.site.register(Employee,EmployeeAdmin)
+```
 
 ## OUTPUT
+### Server output: 
+![serveroutput](./server_output.png)
 
-Include the screenshot of your admin page.
+
 
 
 ## RESULT

@@ -19,6 +19,7 @@ class Employee (models.Model):
    ename=models.CharField(max_length=50)
    post=models.CharField(max_length=20)
    salary=models.IntegerField()
+   
 
 
 class EmployeeAdmin(admin.ModelAdmin):
